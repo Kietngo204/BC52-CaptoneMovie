@@ -27,7 +27,7 @@ fetcher.interceptors.response.use(
   },
   (error) => {
     // Kiểm tra nếu lỗi là 401 => token không hợp lệ => đăng xuất
-    if (error.response.status === 401) {
+    if (error.response?.status === 401) {
       localStorage.removeItem("currentUser");
       window.location.replace("/signin");
     }

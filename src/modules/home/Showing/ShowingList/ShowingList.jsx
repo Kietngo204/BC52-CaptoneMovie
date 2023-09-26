@@ -78,7 +78,7 @@ export default function ShowingList() {
               key={item.maPhim}
               className="swiper-slide2"
             >
-              <img src={item.hinhAnh} alt={item.tenPhim} />
+              <img src={item.hinhAnh} height="100%" alt={item.tenPhim} />
               <Box
                 onClick={() => handleOpen(item)}
                 sx={{
