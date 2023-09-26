@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 export default function Details() {
   const { movieId } = useParams();
-  console.log(movieId);
 
   return (
     <div

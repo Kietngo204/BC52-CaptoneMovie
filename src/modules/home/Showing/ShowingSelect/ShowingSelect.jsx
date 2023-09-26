@@ -136,6 +136,7 @@ export default function ShowingSelect({ movies }) {
                         key={showtime.maLichChieu}
                         onClick={() => {
                           setCodeTimeCinema(showtime.maLichChieu);
+                          console.log(showtime.maLichChieu);
                         }}
                       >
                         {time}
@@ -151,7 +152,7 @@ export default function ShowingSelect({ movies }) {
           margin={0}
           height="56px"
           onClick={() => {
-            navigate(`/movies/${codeTimeCinema}`);
+            navigate(`/tickets/${codeTimeCinema}`);
           }}
         >
           mua vé ngay

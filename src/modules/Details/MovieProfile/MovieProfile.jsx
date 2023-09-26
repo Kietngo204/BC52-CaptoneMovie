@@ -12,7 +12,7 @@ export default function MovieProfile({ movieId }) {
     queryKey: ["movieProfile"],
     queryFn: () => getMovieDetails(movieId),
   });
-  console.log(movieProfile);
+
   const time = dayjs(movieProfile.ngayKhoiChieu).format("DD.MM.YYYY");
   return (
     <Container>
