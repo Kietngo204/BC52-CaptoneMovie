@@ -19,6 +19,7 @@ export default function ShowingSelect({ movies }) {
   const [cinema, setCinema] = React.useState("");
   const [date, setDate] = React.useState("");
   const [codeTimeCinema, setCodeTimeCinema] = React.useState("");
+  const [errors, setErrors] = React.useState(false);
   const { data: cinemas = [] } = useQuery({
     queryKey: ["listCinema", movie],
     queryFn: () => getMovieShowTimes(movie),
@@ -71,11 +72,12 @@ export default function ShowingSelect({ movies }) {
             id="demo-simple-select-autowidth"
             value={movie}
             onChange={handleChangeMovie}
+            error={!!errors}
             autoWidth
             label="Phim"
           >
             <MenuItem value="">
-              <em>None</em>{" "}
+              <em>Chọn phim</em>{" "}
             </MenuItem>
             {movies.map((movieItem) => {
               return (
@@ -93,11 +95,12 @@ export default function ShowingSelect({ movies }) {
             id="demo-simple-select-autowidth"
             value={cinema}
             onChange={handleChangeCinema}
+            error={!!errors}
             autoWidth
             label="Rạp"
           >
             <MenuItem value="">
-              <em>None</em>
+              <em>Chọn rạp</em>
             </MenuItem>
             {cinemas.heThongRapChieu?.map((cinemaItem) => {
               return (
@@ -117,11 +120,12 @@ export default function ShowingSelect({ movies }) {
             id="demo-simple-select-autowidth"
             value={date}
             onChange={handleChangeDate}
+            error={!!errors}
             autoWidth
             label="Ngày giờ chiếu"
           >
             <MenuItem value="">
-              <em>None</em>
+              <em>Chọn ngày giờ chiếu</em>
             </MenuItem>
 
             {dateCinemas.map((dateCinema) => {
@@ -132,7 +136,7 @@ export default function ShowingSelect({ movies }) {
                       "DD-MM-YYYY ~ HH:mm"
                     );
                     return (
-                      <em
+                      <span
                         key={showtime.maLichChieu}
                         onClick={() => {
                           setCodeTimeCinema(showtime.maLichChieu);
@@ -140,7 +144,7 @@ export default function ShowingSelect({ movies }) {
                         }}
                       >
                         {time}
-                      </em>
+                      </span>
                     );
                   })}
                 </MenuItem>
@@ -152,7 +156,13 @@ export default function ShowingSelect({ movies }) {
           margin={0}
           height="56px"
           onClick={() => {
-            navigate(`/tickets/${codeTimeCinema}`);
+            if (!codeTimeCinema) {
+              setErrors(true);
+              navigate(`/`);
+            } else {
+              setErrors(false);
+              navigate(`/tickets/${codeTimeCinema}`);
+            }
           }}
         >
           mua vé ngay

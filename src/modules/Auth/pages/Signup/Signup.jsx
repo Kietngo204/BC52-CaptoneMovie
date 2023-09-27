@@ -22,9 +22,13 @@ const signupSchema = object({
     .required("Email không được để trống")
     .email("Email không đúng định dạng"),
   hoTen: string().required("Họ tên không được để trống"),
-  soDt: string()
+  _soDt: string()
     .required("Số điện thoại không được để trống")
+
     .matches(/^(0[1-9][0-9]{8})$/, "Số điện thoại không đúng"),
+  get soDt() {
+    return this._soDt;
+  },
 });
 
 export default function Signup() {
@@ -96,7 +100,6 @@ export default function Signup() {
             helperText={errors.taiKhoan?.message}
             {...register("taiKhoan")}
           />
-
           <TextField
             fullWidth
             error={!!errors.matKhau}
@@ -106,7 +109,6 @@ export default function Signup() {
             helperText={errors.matKhau?.message}
             {...register("matKhau")}
           />
-
           <TextField
             fullWidth
             error={!!errors.email}
@@ -115,7 +117,6 @@ export default function Signup() {
             helperText={errors.email?.message}
             {...register("email")}
           />
-
           <TextField
             fullWidth
             error={!!errors.hoTen}
@@ -124,13 +125,15 @@ export default function Signup() {
             helperText={errors.hoTen?.message}
             {...register("hoTen")}
           />
-
           <TextField
             fullWidth
             error={!!errors.soDt}
             label="Số điện thoại"
             color="error"
             type="number"
+            onInput={(e) => {
+              e.target.value = e.target.value.toString().slice(0, 10);
+            }}
             helperText={errors.soDt?.message}
             {...register("soDt")}
           />
@@ -142,7 +145,6 @@ export default function Signup() {
           >
             Đăng ký
           </ButtonMovie>
-
           {error && <Error>{error}</Error>}
         </Box>
         <Link style={{ margin: "10px" }} to={"/signin"}>
