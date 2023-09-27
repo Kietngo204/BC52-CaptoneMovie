@@ -22,13 +22,9 @@ const signupSchema = object({
     .required("Email không được để trống")
     .email("Email không đúng định dạng"),
   hoTen: string().required("Họ tên không được để trống"),
-  _soDt: string()
+  soDt: string()
     .required("Số điện thoại không được để trống")
-
     .matches(/^(0[1-9][0-9]{8})$/, "Số điện thoại không đúng"),
-  get soDt() {
-    return this._soDt;
-  },
 });
 
 export default function Signup() {
@@ -62,12 +58,9 @@ export default function Signup() {
   const navigate = useNavigate();
 
   const onSubmit = (values) => {
+    console.log(values);
     // Gọi API đăng ký
     handleSignup(values);
-  };
-
-  const onError = (errors) => {
-    console.log(errors);
   };
 
   return (
@@ -90,7 +83,7 @@ export default function Signup() {
           }}
           noValidate
           autoComplete="off"
-          onSubmit={handleSubmit(onSubmit, onError)}
+          onSubmit={handleSubmit(onSubmit)}
         >
           <TextField
             fullWidth

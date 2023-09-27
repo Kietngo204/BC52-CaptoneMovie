@@ -61,6 +61,8 @@ export default function ShowingList() {
         spaceBetween={30}
         pagination={{
           clickable: true,
+          dynamicBullets: true,
+          dynamicMainBullets: 3,
         }}
         modules={[Grid, Pagination]}
         className="mySwiper"
@@ -88,7 +90,7 @@ export default function ShowingList() {
                   top: "0",
                   left: "0",
                   width: "100%",
-                  height: "80%",
+                  height: "75%",
                   zIndex: "1201",
                   opacity: "0",
                   borderRadius: "10px",
