@@ -12,11 +12,7 @@ export default function MovieList({ showtimeId }) {
   });
   const listSeat = data?.danhSachGhe || [];
   return (
-    <TransformWrapper
-      initialScale={1}
-      // initialPositionX={200}
-      // initialPositionY={200}
-    >
+    <TransformWrapper initialScale={1}>
       {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
         <React.Fragment>
           <div className="tools">

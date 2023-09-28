@@ -90,7 +90,7 @@ export default function ShowingList() {
                   top: "0",
                   left: "0",
                   width: "100%",
-                  height: "75%",
+                  height: "69%",
                   zIndex: "1201",
                   opacity: "0",
                   borderRadius: "10px",
