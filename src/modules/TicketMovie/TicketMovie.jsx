@@ -18,6 +18,7 @@ export default function TicketMovie() {
           justifyContent={"center"}
           flexDirection={"column"}
           alignItems={"center"}
+          sx={{ backgroundColor: "#262626" }}
         >
           <Grid
             item
@@ -28,9 +29,9 @@ export default function TicketMovie() {
             alignItems={"center"}
           >
             <Box
-              sx={{ backgroundColor: "black", width: "30vw", height: "10px" }}
+              sx={{ backgroundColor: "white", width: "30vw", height: "10px" }}
             ></Box>
-            <Typography>Màn hình</Typography>
+            <Typography color={"white"}>Màn hình</Typography>
           </Grid>
           <Grid item xs={12}>
             <MovieList showtimeId={showtimeId} />

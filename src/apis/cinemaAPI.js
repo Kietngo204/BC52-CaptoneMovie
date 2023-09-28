@@ -12,3 +12,12 @@ export async function getMovieShowTimes(movieId) {
     throw error.response.data.content;
   }
 }
+
+export async function getCinema() {
+  try {
+    const response = await fetcher.get(`/QuanLyRap/LayThongTinHeThongRap`);
+    return response.data.content;
+  } catch (error) {
+    throw error.response.data.content;
+  }
+}

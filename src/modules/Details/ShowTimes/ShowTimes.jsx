@@ -2,13 +2,17 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState, useEffect } from "react";
 import { getMovieShowTimes } from "../../../apis/cinemaAPI";
 import dayjs from "dayjs";
-import { Container, Divider, Stack } from "@mui/material";
+import { Box, Container, Divider, Stack, Typography } from "@mui/material";
 import { ButtonCinema, Item, NameCinema } from "./styled_ShowItem";
+import { ButtonMovie } from "../../../components/ButtonMovie";
+import { useNavigate } from "react-router-dom";
 
 export default function ShowTimes({ movieId }) {
   const [cinemas, setCinemas] = useState([]);
   const [selectedCinema, setSelectedCinema] = useState(null);
   const [showtimesAvailable, setShowtimesAvailable] = useState(true);
+
+  const navigate = useNavigate();
 
   const { data, isLoading } = useQuery({
     queryKey: ["movieShowtimes", movieId],
@@ -97,14 +101,40 @@ export default function ShowTimes({ movieId }) {
 
                     // onClick={() => navigate(`/tickets/${showtime.maLichChieu}`)}
                     return (
-                      <ButtonCinema key={showtime.maRap}>{time}</ButtonCinema>
+                      <ButtonCinema
+                        key={showtime.maRap}
+                        onClick={() => {
+                          navigate(`/tickets/${showtime.maLichChieu}`);
+                        }}
+                      >
+                        {time}
+                      </ButtonCinema>
                     );
                   })}
                 </div>
               );
             })
           ) : (
-            <div>Không có lịch chiếu phim</div>
+            <Box
+              padding={10}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <Typography>Không có lịch chiếu phim</Typography>
+              <ButtonMovie
+                height="40px"
+                width="auto"
+                margin="10px 0 0 0 "
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
+                Trở lại chọn phim khác
+              </ButtonMovie>
+            </Box>
           )}
         </Stack>
       </Stack>
