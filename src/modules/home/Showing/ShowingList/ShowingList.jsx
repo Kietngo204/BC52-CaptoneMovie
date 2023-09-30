@@ -80,7 +80,7 @@ export default function ShowingList() {
               key={item.maPhim}
               className="swiper-slide2"
             >
-              <img src={item.hinhAnh} height="100%" alt={item.tenPhim} />
+              <img src={item.hinhAnh} alt={item.tenPhim} />
               <Box
                 onClick={() => handleOpen(item)}
                 sx={{
@@ -90,7 +90,7 @@ export default function ShowingList() {
                   top: "0",
                   left: "0",
                   width: "100%",
-                  height: "69%",
+                  height: "75%",
                   zIndex: "1201",
                   opacity: "0",
                   borderRadius: "10px",
@@ -120,8 +120,15 @@ export default function ShowingList() {
 
               {isHovered ? (
                 <ButtonMovie
-                  margin="10px"
+                  // margin="10px"
                   height="56px"
+                  style={{
+                    position: "absolute",
+                    bottom: "10px",
+                    left: "50%",
+                    width: "90%",
+                    transform: "translateX(-50%)",
+                  }}
                   onClick={() => navigate(`/movies/${item.maPhim}`)}
                 >
                   mua vé

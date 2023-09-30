@@ -10,7 +10,7 @@ import { ButtonMovie } from "../../../../components/ButtonMovie";
 import { useQuery } from "@tanstack/react-query";
 
 import { getMovieShowTimes } from "../../../../apis/cinemaAPI";
-import { getMovieDetails } from "../../../../apis/movieAPI";
+
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 

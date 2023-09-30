@@ -4,12 +4,12 @@ import Footer from "../../components/Footer";
 import { Outlet } from "react-router-dom";
 export default function MainLayout() {
   return (
-    <div>
+    <React.Fragment>
       <Header />
 
       <Outlet />
 
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }

@@ -4,6 +4,7 @@ export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(16, auto);
   gap: 10px;
+  overflow: hidden;
 `;
 
 export const ButtonSeatMovie = styled.button`
