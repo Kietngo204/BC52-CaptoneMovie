@@ -47,16 +47,16 @@ export default function TicketMovie() {
         }}
       >
         <Container
-          sx={{ paddingTop: "80px", zIndex: "100", position: "relative" }}
+          sx={{ paddingTop: "64px", zIndex: "100", position: "relative" }}
         >
           <Grid
             container
-            spacing={2}
             display={"flex"}
             justifyContent={"center"}
             flexDirection={"column"}
             alignItems={"center"}
             sx={{ backgroundColor: "#262626" }}
+            p={0}
           >
             <Grid
               item
@@ -65,17 +65,18 @@ export default function TicketMovie() {
               justifyContent={"center"}
               flexDirection={"column"}
               alignItems={"center"}
+              pt={2}
             >
               <Box
                 sx={{ backgroundColor: "white", width: "30vw", height: "10px" }}
               ></Box>
               <Typography color={"white"}>Màn hình</Typography>
             </Grid>
-            <Grid item xs={12} overflow={"hidden"}>
+            <Grid item xs={12} overflow={"hidden"} maxWidth="100%">
               <MovieSeatList showtimeId={showtimeId} />
             </Grid>
-            <Grid item xs={12}>
-              <Ticket showtimeId={showtimeId} />
+            <Grid item xs={12} maxWidth="100%">
+              <Ticket infoCinema={infoCinema} />
             </Grid>
           </Grid>
         </Container>
