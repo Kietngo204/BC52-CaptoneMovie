@@ -48,7 +48,7 @@ ElevationScroll.propTypes = {
 export default function Header(props) {
   const pages = [
     { id: "showing", label: "Lịch chiếu" },
-    { id: "cumrap", label: "Cụm rạp" },
+    { id: "cinema", label: "Cụm rạp" },
     { id: "tintuc", label: "Tin tức" },
     { id: "ungdung", label: "Ứng dụng" },
   ];

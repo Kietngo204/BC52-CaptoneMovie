@@ -13,6 +13,7 @@ export default function Details() {
         backgroundColor: "rgb(10, 32, 41)",
       }}
       pt={5}
+      height={"80vh"}
     >
       <MovieProfile movieId={movieId} />
       <ShowTimes movieId={movieId} />

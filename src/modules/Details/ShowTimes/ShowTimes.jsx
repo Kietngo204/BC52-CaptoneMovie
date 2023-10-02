@@ -41,13 +41,13 @@ export default function ShowTimes({ movieId }) {
   }, [cinemaSystems]);
 
   return (
-    <Container>
+    <Container sx={{ paddingBottom: "25px" }}>
       <Stack
         direction="row"
         justifyContent="flex-start"
         alignItems="flex-star"
         spacing={1}
-        sx={{ borderRadius: "10px 10px 0 0" }}
+        sx={{ borderRadius: "10px" }}
         style={{
           backgroundColor: "white",
           padding: "20px",

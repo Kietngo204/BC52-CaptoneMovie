@@ -7,6 +7,9 @@ export const Item = styled.div`
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 5px;
+  padding: ${(props) => props.p};
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
   cursor: pointer;
   transition: all 0.5s;
 

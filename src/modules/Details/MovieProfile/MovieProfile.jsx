@@ -85,12 +85,14 @@ export default function MovieProfile({ movieId }) {
             left: "50%",
             transform: "translate(-50%, -50%)",
             backgroundColor: "transparent",
+            width: "75%",
+            height: "75%",
           }}
         >
           <ReactPlayer
             url={trailerMovie}
-            width="60vw"
-            height="60vh"
+            width="100%"
+            height="100%"
             controls={true}
           />
         </Box>

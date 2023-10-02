@@ -5,7 +5,13 @@ import FooterCinema from "./FooterCinema";
 import FooterContact from "./FooterContact";
 export default function Footer() {
   return (
-    <Box sx={{ backgroundColor: "#212121", color: "#fff", padding: "28px 0" }}>
+    <Box
+      sx={{
+        backgroundColor: "#212121",
+        color: "#fff",
+        padding: "28px 0",
+      }}
+    >
       <Container>
         <Grid container spacing={{ xs: 5, sm: 2 }}>
           <Grid item xs={4}>

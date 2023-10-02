@@ -23,3 +23,4 @@ export const NameMovie = styled.h3`
   white-space: nowrap;
   margin: 0;
 `;
+
