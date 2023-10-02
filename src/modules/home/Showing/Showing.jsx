@@ -3,7 +3,7 @@ import React from "react";
 import { getMovie } from "../../../apis/movieAPI";
 import Loading from "../../../components/Loading";
 import ShowingList from "./ShowingList";
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import ShowingSelect from "./ShowingSelect/ShowingSelect";
 
 export default function Showing() {
@@ -16,11 +16,14 @@ export default function Showing() {
     return <Loading />;
   }
   return (
-    <div id="showing">
+    <Box
+      id="showing"
+      
+    >
       <Container maxWidth="md" style={{ position: "relative", padding: "0" }}>
         <ShowingSelect movies={data} />
         <ShowingList />
       </Container>
-    </div>
+    </Box>
   );
 }

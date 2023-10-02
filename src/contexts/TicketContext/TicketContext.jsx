@@ -8,9 +8,9 @@ const TicketProvider = ({ children }) => {
 
   const handleSelect = (seat) => {
     // Kiểm tra số lượng ghế đã chọn
-    if (selectedSeats.length >= 8) {
+    if (selectedSeats.length >= 7) {
       // Sử dụng alert để hiển thị thông báo khi vượt quá 8 ghế
-      alert("Bạn không thể chọn quá 8 ghế.");
+      alert("Bạn không thể chọn quá 7 ghế.");
 
       // eslint-disable-next-line no-restricted-globals
       return location.reload();

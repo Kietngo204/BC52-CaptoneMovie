@@ -6,39 +6,45 @@ import {
   MiniCardUl,
   TextTicket,
 } from "../MovieSeatList/styledMovieList";
-import { Box } from "@mui/material";
+import { Box, Snackbar } from "@mui/material";
 import { useTicketContext } from "../../../contexts/TicketContext/TicketContext";
+import { ButtonMovie } from "../../../components/ButtonMovie";
+import MuiAlert from "@mui/material/Alert";
 
 export default function Ticket({ infoCinema }) {
-  console.log(infoCinema);
-  const { selectedSeats, totalPrice, removeSeat } = useTicketContext();
-  const handleSeatSelect = (seat) => {
-    // Kiểm tra số lượng ghế đã chọn
-    if (selectedSeats.length >= 8) {
-      // Sử dụng alert để hiển thị thông báo khi vượt quá 8 ghế
-      alert("Bạn không thể chọn quá 8 ghế.");
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
+
+  const { selectedSeats, totalPrice } = useTicketContext();
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
       return;
     }
 
-    // Thêm ghế vào danh sách đã chọn
-    // Ví dụ:
-    // addSeatToSelected(seat);
+    setOpen(false);
   };
-
   return (
     <BackgroundTicket>
       <FormatBackground bg="url(https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-top-seatmap.png) repeat-x top left transparent;"></FormatBackground>
       <MiniCardUl>
         <MiniCardLi br="1px solid #cccc" p="0 10px 0 0">
-          <Box sx={{ width: "150px", height: "150px", marginTop: "16px" }}>
-            <img
-              src={infoCinema.hinhAnh}
-              width="100%"
-              height="100%"
-              alt={infoCinema.tenPhim}
-            />
-          </Box>
           <Box display={"flex"} flexDirection={"column"}>
+            <Box sx={{ width: "100%", height: "150px", marginTop: "16px" }}>
+              <img
+                src={infoCinema.hinhAnh}
+                width="100%"
+                height="100%"
+                alt={infoCinema.tenPhim}
+              />
+            </Box>
             <TextTicket pl="8px">{infoCinema.tenPhim}</TextTicket>
           </Box>
         </MiniCardLi>
@@ -52,7 +58,7 @@ export default function Ticket({ infoCinema }) {
           </Box>
         </MiniCardLi>
         <MiniCardLi p="0 10px">
-          <Box display={"flex"} flexDirection={"column"}>
+          <Box display={"flex"} flexDirection={"column"} position={"relative"}>
             <TextTicket>Thanh toán</TextTicket>
             <TextTicket>{totalPrice} VNĐ</TextTicket>
             <TextTicket>Ghế bạn chọn :</TextTicket>
@@ -67,6 +73,24 @@ export default function Ticket({ infoCinema }) {
                 );
               })}
             </Box>
+            <ButtonMovie
+              onClick={handleClick}
+              height="40px"
+              position="absolute"
+              bot="10px"
+              left="0"
+            >
+              Đặt vé
+            </ButtonMovie>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity="success"
+                sx={{ width: "100%" }}
+              >
+                Đặt vé thành công
+              </Alert>
+            </Snackbar>
           </Box>
         </MiniCardLi>
       </MiniCardUl>

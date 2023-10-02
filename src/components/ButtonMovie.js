@@ -14,6 +14,9 @@ export const ButtonMovie = styled.button`
   padding: 0 10px;
   margin: ${(props) => props.margin};
   width: ${(props) => props.width};
+  position: ${(props) => props.position};
+  bottom: ${(props) => props.bot};
+  left: ${(props) => props.left};
   transition: all 0.5s;
   &:hover {
     background-color: rgb(175, 46, 26);

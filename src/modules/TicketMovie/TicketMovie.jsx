@@ -72,7 +72,14 @@ export default function TicketMovie() {
               ></Box>
               <Typography color={"white"}>Màn hình</Typography>
             </Grid>
-            <Grid item xs={12} overflow={"hidden"} maxWidth="100%">
+            <Grid
+              item
+              display={"flex"}
+              flexDirection={"column"}
+              xs={12}
+              overflow={"hidden"}
+              maxWidth="100%"
+            >
               <MovieSeatList showtimeId={showtimeId} />
             </Grid>
             <Grid item xs={12} maxWidth="100%">

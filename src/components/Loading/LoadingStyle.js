@@ -7,6 +7,6 @@ export const LoadingStyle = styled.section`
   justify-content: center;
   align-items: center;
   z-index: 5000;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 `;
