@@ -11,9 +11,9 @@ export default function Details() {
     <Box
       sx={{
         backgroundColor: "rgb(10, 32, 41)",
+        minHeight: "80vh",
       }}
       pt={5}
-      height={"80vh"}
     >
       <MovieProfile movieId={movieId} />
       <ShowTimes movieId={movieId} />

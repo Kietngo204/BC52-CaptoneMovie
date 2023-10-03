@@ -47,8 +47,8 @@ export default function ShowTimes({ movieId }) {
         justifyContent="flex-start"
         alignItems="flex-star"
         spacing={1}
-        sx={{ borderRadius: "10px" }}
-        style={{
+        sx={{
+          borderRadius: "10px",
           backgroundColor: "white",
           padding: "20px",
         }}

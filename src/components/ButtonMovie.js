@@ -18,6 +18,11 @@ export const ButtonMovie = styled.button`
   bottom: ${(props) => props.bot};
   left: ${(props) => props.left};
   transition: all 0.5s;
+
+  @media (max-width: 600px) {
+    position: inherit;
+  }
+
   &:hover {
     background-color: rgb(175, 46, 26);
   }

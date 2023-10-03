@@ -147,13 +147,9 @@ export default function Cinema({ theaterId }) {
                         sx={{
                           borderBottom: "1px dashed #cd84f1",
                         }}
+                        key={phim.maPhim}
                       >
-                        <Grid
-                          item
-                          xs={4}
-                          key={phim.maPhim}
-                          sx={{ padding: "15px" }}
-                        >
+                        <Grid item xs={4} sx={{ padding: "15px" }}>
                           <img src={phim.hinhAnh} alt="hinhAnh" width="100%" />
                         </Grid>
                         <Grid item xs={8}>
@@ -166,7 +162,7 @@ export default function Cinema({ theaterId }) {
                               }}
                             >
                               {phim.tenPhim}
-                              {phim.hot && (
+                              {/* {phim.hot && (
                                 <Chip
                                   label="HOT"
                                   color="secondary"
@@ -174,7 +170,7 @@ export default function Cinema({ theaterId }) {
                                   size="small"
                                   sx={{ fontWeight: "bold", ml: 2 }}
                                 />
-                              )}
+                              )} */}
                             </Typography>
 
                             {phim.lstLichChieuTheoPhim.map((lichChieu) => (
