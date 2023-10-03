@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ButtonSeatMovie } from "../styledMovieList";
 
 export default function MovieSeatItem({
@@ -32,6 +32,9 @@ export default function MovieSeatItem({
         // setIsSelected(!isSelected);
         handleSelect({ ...seat, isSelected: !isSelected });
         // console.log(seat);
+      }}
+      onTouchEnd={() => {
+        handleSelect({ ...seat, isSelected: !isSelected });
       }}
     >
       {seat.tenGhe}

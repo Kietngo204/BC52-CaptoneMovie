@@ -6,7 +6,7 @@ import {
   getLogo,
   getTheaterShowtimes,
 } from "../../../apis/cinemaAPI";
-import { Box, Chip, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 import dayjs from "dayjs";
 import Loading from "../../../components/Loading";
